@@ -1,70 +1,77 @@
 class Kingdom {
-  constructor(backBone, withOutBackBone, coldBlooded, warmBlooded ) {
+  constructor(backBone, withOutBackBone, coldBlooded, warmBlooded) {
     this.backBone;
-   this.withOutBackBone;
+    this.withOutBackBone;
     this.coldBlooded;
-   this.warmBlooded;
+    this.warmBlooded;
   }
 
-getBackBone(){
-    return this.backBone
-}
+  getBackBone() {
+    return this.backBone;
+  }
   setBackBone(backBone) {
     this.backBone = backBone;
   }
-  setwithOutBackBone() {
-    console.log("does not have backbone");
+  getWithOutBackBone() {
+    return this.withOutBackBone;
   }
-  setcoldBlooded() {
-    console.log("is coolblooded");
+  setWithOutBackBone(withOutBackBone) {
+    this.withOutBackBone = withOutBackBone;
   }
-  getWarmBlooded(){
-      return this.warmBlooded
+  getColdBlooded() {
+    return this.coldBlooded;
+  }
+  setColdBlooded(coldBlooded) {
+    this.coldBlooded = coldBlooded;
+  }
+  getWarmBlooded() {
+    return this.warmBlooded;
   }
   setWarmBlooded(warmBlooded) {
-    this.warmBlooded = warmBlooded
+    this.warmBlooded = warmBlooded;
   }
+  alive = "we are all living things";
+  breathing = "we all need oxygen to survive";
+  static summary = "all other classes below are are under the kingdom class";
 }
-let all = new Kingdom()
-console.log(all)
-all.setBackBone("has it")
-all.setWarmBlooded("they are warm-blooded in mature")
-console.log(all.getBackBone())
+let all = new Kingdom();
+console.log(all);
+all.setBackBone("they have back bone");
+all.setWarmBlooded("they are warm-blooded in mature");
+all.setColdBlooded("they are cold-blooded in nature");
+all.setWithOutBackBone("they do not have back bone");
+console.log(all.getBackBone());
 class Mammals extends Kingdom {
   constructor(backBone, warmBlooded) {
     super(backBone, warmBlooded);
     this.warmBlooded = warmBlooded;
     let hasHair;
-   
   }
-  
-  getHasHair(){
-      return this.hasHair;
+
+  getHasHair() {
+    return this.hasHair;
   }
-  setHasHair(hasHair){
-      this.hasHair = hasHair;
+  setHasHair(hasHair) {
+    this.hasHair = hasHair;
   }
-  getBackBone(){
-      return all.getBackBone()
+  getBackBone() {
+    return all.getBackBone();
   }
-  setBackBone(backBone){
-      this.backBone = backBone
+
+  getWarmBlooded() {
+    return all.getWarmBlooded();
   }
-  getWarmBlooded(){
-      return all.getWarmBlooded()
-  }
+  warmBlooded = all.setBackBone();
   leg = "2 or 4 legs";
   eyes = "2 eyes";
 }
 
 let mammal = new Mammals();
 mammal.setHasHair(true);
-
-
+mammal.setBackBone(true);
+mammal.setWarmBlooded("ther are warm dlooded in nature");
 console.log(mammal);
-console.log(mammal.getHasHair());
-console.log(mammal.getBackBone())
-console.log(mammal.getWarmBlooded())
+
 class Fish extends Kingdom {
   constructor(
     backBone,
@@ -76,7 +83,6 @@ class Fish extends Kingdom {
     this.backBone = backBone;
 
     this.coldBlooded = coldBlooded;
-    
   }
   leg = "none";
   eyes = 2;
@@ -120,54 +126,64 @@ class Aves extends Kingdom {
 let pegion = new Aves("is warm blooded in nature", "has back bone");
 console.log(pegion);
 pegion.setEyes("has 2 eyes");
-pegion.setHasFeathers(true)
+pegion.setHasFeathers(true);
 console.log(pegion.getEyes());
-console.log(pegion.getHasFeathers())
+console.log(pegion.getHasFeathers());
 
 class Arthropoda extends Kingdom {
-  constructor(warmBlooded, backBone) {
-    super(warmBlooded, backBone);
-    this.warmBlooded = warmBlooded;
+  constructor(coldBlooded, withOutBackBone) {
+    super(coldBlooded, withOutBackBone);
+  }
+  getWithOutBackBone() {
+    return this.backBone;
+  }
+  setWithOutBackBone(withOutBackBone) {
+    this.withOutBackBone = withOutBackBone;
+  }
+  getColdBlooded() {
+    return this.backBone;
+  }
+  setColdBlooded(coldBlooded) {
+    this.coldBlooded = coldBlooded;
+  }
+  eyes = "mostly 2";
+  leg = "more than 4 legs";
+}
+let ant = new Arthropoda();
+ant.setWithOutBackBone("does not have a back bone");
+ant.setColdBlooded("they are cold-blooded in nature");
+console.log(ant);
+class Amphibians extends Kingdom {
+  constructor(coldBlooded, backBone) {
+    super(coldBlooded, backBone);
+    this.coldBlooded = coldBlooded;
     this.backBone = backBone;
   }
   eyes = 2;
-  leg = "more than 4 legs";
-  hasFeathers = true;
+  leg = "usually 4 or less";
 }
-class Amphibians extends Kingdom {
-    constructor(coldBlooded, backBone){
-        super (coldBlooded, backBone)
-        this.coldBlooded = coldBlooded
-        this.backBone = backBone
-        
-        
-    }
-}
-let ant = new Amphibians("is cold-blooded in nature", true)
-console.log(ant)
-class Reptilia {
-    constructor(backBone, warmBlooded) {
-    this.warmBlooded = warmBlooded;
-    let hasHair;
-   
+let frog = new Amphibians("is cold-blooded in nature", true);
+console.log(frog);
+
+class Reptilia extends Kingdom {
+  constructor(warmBlooded, backBone, leg) {
+    super(warmBlooded, backBone);
+    this.leg = leg;
   }
-  
-  getHasHair(){
-      return this.hasHair;
+  getLeg() {
+    return this.leg;
   }
-  setHasHair(hasHair){
-      this.hasHair = hasHair;
+  setLeg(leg) {
+    this.leg = leg;
   }
-  getBackBone(){
-      return all.getBackBone()
+  hasBacckBone() {
+    console.log("it has");
   }
-  setBackBone(backBone){
-      this.backBone = backBone
-  }
-  leg = "2 or 4 legs";
-  eyes = "2 eyes";
 }
 
-let lizard = new Reptilia()
+let lizard = new Reptilia();
+lizard.setLeg("0-4 legs");
+lizard.setBackBone(true);
+lizard.setWarmBlooded("ther are warm dlooded in nature");
 
-console.log(lizard.getBackBone())
+console.log(lizard);
